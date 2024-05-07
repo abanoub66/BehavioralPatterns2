@@ -44,8 +44,10 @@ public class VendingMachine {
             dispense(selection, money);
         } else {
             state = StateOfVendingMachine.RETURNING_MONEY;
+            System.out.println("Pls insert correct change");
             returnMoney(money);
         }
+        state = StateOfVendingMachine.IDLE;
     }
 
     private Snack dispense(String selection, double money) {
@@ -64,6 +66,7 @@ public class VendingMachine {
 
     public double returnChange(double change) {
         if (state.equals(StateOfVendingMachine.RETURNING_CHANGE)) {
+            System.out.println("Returning change");
             return change;
         }
         return -1;
@@ -72,6 +75,7 @@ public class VendingMachine {
 
     public double returnMoney(double money) {
         if (state.equals(StateOfVendingMachine.RETURNING_MONEY)) {
+            System.out.println("Returning money");
             return money;
         }
         return -1;

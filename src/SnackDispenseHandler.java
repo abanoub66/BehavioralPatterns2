@@ -27,14 +27,17 @@ public class SnackDispenseHandler {
             if (current.snack.name().equals(selection)) {
                 if (current.quantity > 0) {
                     current.quantity--;
+                    System.out.println("Dispensing " + current.snack.name());
                     return current.snack;
                 } else {
+                    System.out.println("No" + current.snack.name() + " remaining");
                     return null;
                 }
 
             }
             current = current.next;
         }
+        System.out.println("No " + current.snack.name() + " remaining");
         return null;
     }
 
